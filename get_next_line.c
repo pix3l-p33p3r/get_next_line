@@ -40,7 +40,7 @@ void	shift_left(char *buffer, int nb)
 	while (i + nb < BUFFER_SIZE)
 	{
 		buffer[i] = buffer[i + nb];
-		i++;	
+		i++;
 	}
 	buffer[i] = 0;
 }
@@ -48,8 +48,7 @@ void	shift_left(char *buffer, int nb)
 void	change_buffer(char *buffer)
 {
 	int	count;
-	int	i;
-
+	
 	count = 0;
 	while(count < BUFFER_SIZE && buffer[count] && buffer[count] != '\n')
 		count++;
