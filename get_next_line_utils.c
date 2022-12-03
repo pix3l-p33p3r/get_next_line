@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elel-yak <elel-yak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 16:17:20 by elel-yak          #+#    #+#             */
-/*   Updated: 2022/12/03 17:30:25 by elel-yak         ###   ########.fr       */
+/*   Created: 2022/11/24 16:17:15 by elel-yak          #+#    #+#             */
+/*   Updated: 2022/12/03 17:36:18 by elel-yak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "get_next_line.h"
 
-# define BUFFER_SIZE 3
+int	ft_strlen(char *str)
+{
+	int	count;
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <fcntl.h>
+	count = 0;
+	if (!str)
+		return (0);
+	while (str[count])
+		count++;
+	return (count);
+}
 
-int		ft_strlen(char *str);
-char	*get_next_line(int fd);
-void	*ft_free(char *line);
-char	*ft_strjoin(char const *s1, char const *s2);
-
-#endif
+void	*ft_free(char *line)
+{
+	if (line)
+		free (line);
+	return (NULL);
+}
