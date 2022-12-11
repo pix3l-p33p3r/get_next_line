@@ -6,7 +6,7 @@
 /*   By: elel-yak <elel-yak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:17:17 by elel-yak          #+#    #+#             */
-/*   Updated: 2022/12/11 16:57:42 by elel-yak         ###   ########.fr       */
+/*   Updated: 2022/12/11 18:09:27 by elel-yak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,16 @@ void	shift_left(char *buffer, int nb)
 	i = 0;
 	if (nb == 0)
 		return ;
-	while (i + nb < BUFFER_SIZE)
+	while ((i + nb) < BUFFER_SIZE)
 	{
 		buffer[i] = buffer[i + nb];
 		i++;
 	}
+	// while (i < BUFFER_SIZE)
+	// {
+	// 	buffer[i] = 0;
+	// 	i++;
+	// }
 	buffer[i] = 0;
 }
 
@@ -54,51 +59,42 @@ char	*line_join(char *old_line, char *buffer)
 	new_line = malloc((ft_strlen(old_line) + count + 1) * sizeof(char));
 	if (!new_line)
 		return (ft_free(old_line));
-	i = 0;
-	while (old_line && old_line[i++])
+	i = -1;
+	while (old_line && old_line[++i])
 		new_line[i] = old_line[i];
+	if (!old_line)
+		i++;
 	new_line[i + count] = 0;
-	printf("%d\n", ft_strlen(old_line));
 	while (count--)
-	{
-		printf("%d .--- %d\n",i , count);
-		printf("%c \n",buffer[count] );
-		new_line[i + count] = buffer[count];	
-		printf("%c****** \n",new_line[i + count] );
-	
-	}
+		new_line[i + count] = buffer[count];
 	change_buffer(buffer);
-	free (old_line);
+	ft_free (old_line);
 	return (new_line);
 }
 
 char	*get_next_line(int fd)
 {
-	static char *save_buff;
-	char		*buff;
+	static char	buffer[BUFFER_SIZE];
 	char		*line;
-	int 		nb_read;
+	int			nb_read;
 
 	line = NULL;
-	buff = malloc(BUFFER_SIZE * sizeof(char) + 1);
-	if (buff)
+	if (fd >= 0 && buffer[0])
+		line = line_join(line, buffer);
+	while (fd >= 0)
 	{
-		line = line_join(line, buff);
-		return (NULL);
-	}
-	while (fd)
-	{
-		if (buff[0] == '\n')
+		if (buffer[0] == '\n')
 		{
-			shift_left(buff, 1);
+			shift_left(buffer, 1);
 			break ;
 		}
-		nb_read = read(fd, buff, BUFFER_SIZE);
+		nb_read = read(fd, buffer, BUFFER_SIZE);
 		if (nb_read == -1)
 			return (ft_free(line));
 		if (nb_read == 0)
 			return (line);
-		line = line_join(line, buff);
+		line = line_join(line, buffer);
+		// ft_bzero(buffer, BUFFER_SIZE);
 		if (!line)
 			return (NULL);
 	}
