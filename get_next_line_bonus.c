@@ -6,7 +6,7 @@
 /*   By: elel-yak <elel-yak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:17:06 by elel-yak          #+#    #+#             */
-/*   Updated: 2022/12/11 18:38:44 by elel-yak         ###   ########.fr       */
+/*   Updated: 2022/12/11 19:43:27 by elel-yak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,26 +72,26 @@ char	*line_join(char *old_line, char *buffer)
 
 char	*get_next_line(int fd)
 {
-	static char	buffer[BUFFER_SIZE];
+	static char	buffer[10240][BUFFER_SIZE];
 	char		*line;
 	int			nb_read;
 
 	line = NULL;
-	if (fd >= 0 && buffer[0])
-		line = line_join(line, buffer);
+	if (fd >= 0 && buffer[fd][0])
+		line = line_join(line, buffer[fd]);
 	while (fd >= 0)
 	{
-		if (buffer[0] == '\n')
+		if (buffer[fd][0] == '\n')
 		{
-			shift_left(buffer, 1);
+			shift_left(buffer[fd], 1);
 			break ;
 		}
-		nb_read = read(fd, buffer, BUFFER_SIZE);
+		nb_read = read(fd, buffer[fd], BUFFER_SIZE);
 		if (nb_read == -1)
 			return (ft_free(line));
 		if (nb_read == 0)
 			return (line);
-		line = line_join(line, buffer);
+		line = line_join(line, buffer[fd]);
 		if (!line)
 			return (NULL);
 	}
