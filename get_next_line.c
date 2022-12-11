@@ -6,7 +6,7 @@
 /*   By: elel-yak <elel-yak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:17:17 by elel-yak          #+#    #+#             */
-/*   Updated: 2022/12/11 18:09:27 by elel-yak         ###   ########.fr       */
+/*   Updated: 2022/12/11 18:37:50 by elel-yak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,6 @@ void	shift_left(char *buffer, int nb)
 		buffer[i] = buffer[i + nb];
 		i++;
 	}
-	// while (i < BUFFER_SIZE)
-	// {
-	// 	buffer[i] = 0;
-	// 	i++;
-	// }
 	buffer[i] = 0;
 }
 
@@ -40,7 +35,10 @@ void	change_buffer(char *buffer)
 	while (count < BUFFER_SIZE && buffer[count] && buffer[count] != '\n')
 		count++;
 	if (count == BUFFER_SIZE || buffer[count] == 0)
-		buffer[0] = 0;
+	{
+		while (count--)
+			buffer[count] = 0;
+	}
 	else if (buffer[count] == '\n')
 		shift_left(buffer, count);
 }
@@ -94,18 +92,17 @@ char	*get_next_line(int fd)
 		if (nb_read == 0)
 			return (line);
 		line = line_join(line, buffer);
-		// ft_bzero(buffer, BUFFER_SIZE);
 		if (!line)
 			return (NULL);
 	}
 	return (line);
 }
 
-int	main()
-{
-	char *line;
-	int fd = open("./file", O_RDONLY);
-	while ((line = get_next_line(fd)))
-		printf("%s", line);
-	return (0);
-}
+// int	main()
+// {
+// 	char *line;
+// 	int fd = open("./file", O_RDONLY);
+// 	while ((line = get_next_line(fd)))
+// 		printf("%s", line);
+// 	return (0);
+// }

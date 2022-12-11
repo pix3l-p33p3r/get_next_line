@@ -6,7 +6,7 @@
 /*   By: elel-yak <elel-yak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:17:20 by elel-yak          #+#    #+#             */
-/*   Updated: 2022/12/11 17:52:42 by elel-yak         ###   ########.fr       */
+/*   Updated: 2022/12/11 18:35:39 by elel-yak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
-# include <strings.h>
 
-void	*ft_memset(void *s, int c, size_t n);
-void	ft_bzero(void *s, size_t n);
 int		ft_strlen(char *str);
 char	*get_next_line(int fd);
 void	*ft_free(char *line);
