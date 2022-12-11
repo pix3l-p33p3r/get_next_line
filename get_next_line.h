@@ -6,16 +6,14 @@
 /*   By: elel-yak <elel-yak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:17:20 by elel-yak          #+#    #+#             */
-/*   Updated: 2022/12/03 20:44:49 by elel-yak         ###   ########.fr       */
+/*   Updated: 2022/12/11 16:58:19 by elel-yak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 3
-# endif
+# define BUFFER_SIZE 3
 
 # include <stdio.h>
 # include <stdlib.h>
