@@ -6,11 +6,11 @@
 /*   By: elel-yak <elel-yak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:17:06 by elel-yak          #+#    #+#             */
-/*   Updated: 2022/12/11 19:43:27 by elel-yak         ###   ########.fr       */
+/*   Updated: 2022/12/12 15:39:47 by elel-yak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 void	shift_left(char *buffer, int nb)
 {
@@ -72,7 +72,7 @@ char	*line_join(char *old_line, char *buffer)
 
 char	*get_next_line(int fd)
 {
-	static char	buffer[10240][BUFFER_SIZE];
+	static char	buffer[OPEN_MAX][BUFFER_SIZE];
 	char		*line;
 	int			nb_read;
 
@@ -97,12 +97,3 @@ char	*get_next_line(int fd)
 	}
 	return (line);
 }
-
-// int	main()
-// {
-// 	char *line;
-// 	int fd = open("./file", O_RDONLY);
-// 	while ((line = get_next_line(fd)))
-// 		printf("%s", line);
-// 	return (0);
-// }

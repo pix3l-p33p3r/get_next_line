@@ -6,13 +6,13 @@
 /*   By: elel-yak <elel-yak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:17:12 by elel-yak          #+#    #+#             */
-/*   Updated: 2022/12/11 18:52:20 by elel-yak         ###   ########.fr       */
+/*   Updated: 2022/12/11 19:50:29 by elel-yak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(char *str)
 {
 	int	count;
 
