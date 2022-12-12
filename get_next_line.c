@@ -97,3 +97,12 @@ char	*get_next_line(int fd)
 	}
 	return (line);
 }
+
+int	main()
+{
+	char *line;
+	int fd = open("./file", O_RDONLY);
+	while ((line = get_next_line(fd)))
+		printf("%s", line);
+	return (0);
+}
