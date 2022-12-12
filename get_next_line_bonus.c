@@ -6,7 +6,7 @@
 /*   By: elel-yak <elel-yak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:17:06 by elel-yak          #+#    #+#             */
-/*   Updated: 2022/12/12 15:39:47 by elel-yak         ###   ########.fr       */
+/*   Updated: 2022/12/12 17:08:51 by elel-yak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,13 @@ char	*get_next_line(int fd)
 			return (NULL);
 	}
 	return (line);
+}
+
+int	main()
+{
+	char *line;
+	int fd = open("./file", O_RDONLY);
+	while ((line = get_next_line(fd)))
+		printf("%s", line);
+	return (0);
 }
