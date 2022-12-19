@@ -24,7 +24,8 @@ void	shift_left(char *buffer, int nb)
 		buffer[i] = buffer[i + nb];
 		i++;
 	}
-	buffer[i] = 0;
+	while (i < BUFFER_SIZE)
+		buffer[i++] = 0;
 }
 
 void	change_buffer(char *buffer)
