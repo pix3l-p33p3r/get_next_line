@@ -5,10 +5,13 @@
 ---
 
 
+
+<div align=center>
 <h2>
 	Final score
 </h2>
 <img src=https://github.com/Pix31P33p3r/libft/blob/main/libft_grade.png alt=cado-car's 42Project Score/>
+</div>
 
 <p align=center>
 	In this repo you will find all the codes developed during the <i>get_next_line</i> 1337's project, both <b>mandatory</b>'s part and <b>bonus</b> part.
