@@ -10,7 +10,7 @@
 <h2>
 	Final score
 </h2>
-<img src=https://github.com/Pix31P33p3r/libft/blob/main/libft_grade.png alt=cado-car's 42Project Score/>
+<img src=https://github.com/pix3l-p33p3r/libft/blob/main/libft_grade.png alt=cado-car's 42Project Score/>
 </div>
 
 <p align=center>
@@ -21,7 +21,7 @@
 
 <div align=center>
 <h2>
-<img src=https://github.com/Pix31P33p3r/get_next_line/blob/main/get_next_linem.png alt=cado-car's 42Project Badge/>
+<img src=https://github.com/pix3l-p33p3r/get_next_line/blob/main/get_next_linem.png alt=cado-car's 42Project Badge/>
 </div>
 
 ---
@@ -107,7 +107,7 @@ Usage
 Clone this repository in your local computer:
 
 ```sh
-git clone https://github.com/ablaamim/Get_Next_Line.git
+git clone https://github.com/pix3l-p33p3r/get_next_line.git
 ```
 
 To use the library in your code you will need to include the header:
